@@ -1,7 +1,7 @@
-import { getOptions } from 'loader-utils';
+const loaderUtils = require('loader-utils');
 
-export default function(source) {
-  const options = getOptions(this);
+module.exports = function(source) {
+  const options = loaderUtils.getOptions(this);
   source = source.replace(/\[name\]/g, options.name);
   return `export default ${ JSON.stringify(source) }`;
 };

@@ -1,32 +1,9 @@
-import path, { dirname } from 'path';
 import webpack from 'webpack';
-import { createFsFromVolume, Volume } from 'memfs';
+import config from './webpack.config';
 
 export default (fixture, options = {}) => {
-  const compiler = webpack({
-    context: __dirname,
-    entry: `./${fixture}`,
-    output: {
-      path: path.resolve(__dirname),
-      filename: 'bundle.js'
-    },
-    module: {
-      rules: [
-        {
-          test: /\.txt$/,
-          use: {
-            loader: path.resolve(__dirname, '../src/loader.js'),
-            options: {
-              name: 'Alice',
-            }
-          }
-        }
-      ]
-    }
-  });
-
-  // compiler.outputFileSystem = createFsFromVolume(new Volume());
-
+  config.entry = `./${fixture}`;
+  const compiler = webpack(config);
   return new Promise((resolve, reject) => {
     compiler.run((err, stats) => {
       if (err) reject(err);
