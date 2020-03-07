@@ -1,0 +1,23 @@
+{
+  "name": "express-handlebars-loader",
+  "version": "1.0.0",
+  "description": "A simple webpack loader for express-handlebars templates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-citrus/express-handlebars-loader.git"
+  },
+  "keywords": [
+    "express-handlebars",
+    "webpack"
+  ],
+  "author": "Gautham G.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/code-citrus/express-handlebars-loader/issues"
+  },
+  "homepage": "https://github.com/code-citrus/express-handlebars-loader#readme"
+}
