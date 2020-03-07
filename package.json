@@ -4,7 +4,10 @@
   "description": "A simple webpack loader for express-handlebars templates",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
@@ -19,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/code-citrus/express-handlebars-loader/issues"
   },
-  "homepage": "https://github.com/code-citrus/express-handlebars-loader#readme"
+  "homepage": "https://github.com/code-citrus/express-handlebars-loader#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "babel-jest": "^25.1.0",
+    "jest": "^25.1.0",
+    "memfs": "^3.1.1",
+    "webpack": "^4.42.0"
+  }
 }
