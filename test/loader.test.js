@@ -1,9 +1,11 @@
 import compiler from './compiler';
+var requireFromString = require('require-from-string');
 
 test('Inserts name and outputs Javascript', async() => {
-  const stats = await compiler('example.txt');
+  const stats = await compiler('simple.handlebars');
   const output = stats.toJson();
-  const src = output.modules[0].source;
-  console.log(JSON.stringify(output.modules, null, '\t'));
-  expect(src).toBe('export default "Hey Alice!"');
+  const src = output.modules.find((e) => e.name === './simple.handlebars').source;
+  const template = requireFromString(src);
+  const result = template({ user: 'test' });
+  expect(result).toBe('<html><body><h1>Hello test</h1></body></html>');
 });

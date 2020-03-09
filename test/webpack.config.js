@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   context: __dirname,
-  entry: `./example.txt`,
+  entry: `./simple.handlebars`,
   output: { 
     path: path.resolve(__dirname),
     filename: 'bundle.js'
@@ -10,13 +10,15 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.txt$/,
-        use: {
-          loader: path.resolve(__dirname, '../src/loader.js'),
-          options: {
-            name: 'Alice',
-          }
-        }
+        test: /\.handlebars$/,
+        use: [
+          {
+            loader: path.resolve(__dirname, '../src/loader.js'),
+          },
+          {
+            loader: 'handlebars-loader'
+          },
+        ]
       }
     ] // end rules
   } // end module
